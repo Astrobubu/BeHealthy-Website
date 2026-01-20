@@ -55,9 +55,7 @@ export default function Header({ cartCount, toggleCart }) {
                     }}>
                         <img src="/images/logo.jpg" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
-                    <span style={{
-                        fontSize: '1.5rem',
-                        fontWeight: '900',
+                    <span className="site-title" style={{
                         color: 'var(--color-text)'
                     }}>
                         Be Healthy <span style={{ color: 'var(--color-primary)' }}>Food</span>

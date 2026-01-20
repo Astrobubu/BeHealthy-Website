@@ -14,10 +14,23 @@ function ScrollToTop() {
 }
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  // Initialize from local storage
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('cartItems');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error("Failed to load cart from local storage", error);
+      return [];
+    }
+  });
 
-  // Initialize from local storage if needed in future, staying simple for now.
+  // Save to local storage whenever cartItems changes
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
@@ -40,19 +53,7 @@ function App() {
           <Route path="/capabilities" element={<CapabilitiesPage />} />
         </Routes>
 
-        {/* Simple floating link to capabilities for the demo purpose */}
-        <div style={{ position: 'fixed', bottom: '1rem', right: '1rem', zIndex: 900 }}>
-          <Link to="/capabilities" style={{
-            fontSize: '0.8rem',
-            backgroundColor: 'rgba(0,0,0,0.8)',
-            color: 'white',
-            padding: '0.5rem 1rem',
-            borderRadius: '20px',
-            textDecoration: 'none'
-          }}>
-            ✦ Future Features Demo
-          </Link>
-        </div>
+
       </Layout>
     </Router>
   );

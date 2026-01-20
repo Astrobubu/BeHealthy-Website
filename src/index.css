@@ -172,3 +172,14 @@ img {
 .product-info-overlay {
   backdrop-filter: blur(2px);
 }
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.1rem;
+  }
+}

@@ -26,7 +26,7 @@ export default function CapabilitiesPage() {
                 </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
 
                 {/* Model 1: Subscription Boxes */}
                 <div style={{

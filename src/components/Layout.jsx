@@ -19,7 +19,7 @@ export default function Layout({ children, state }) {
             </main>
 
             <Footer />
-            <WhatsAppButton />
+
 
             <Cart
                 isOpen={isCartOpen}
