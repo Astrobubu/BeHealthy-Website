@@ -8,8 +8,7 @@ export default function Header({ cartCount, toggleCart }) {
     const isCapabilities = location.pathname === '/capabilities';
     const [scrolled, setScrolled] = useState(false);
 
-    // Hide header entirely on Capabilities page
-    if (isCapabilities) return null;
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +22,9 @@ export default function Header({ cartCount, toggleCart }) {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Hide header entirely on Capabilities page
+    if (isCapabilities) return null;
 
     // Determine header style
     const headerStyle = {
